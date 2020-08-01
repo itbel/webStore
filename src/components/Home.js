@@ -62,7 +62,7 @@ const Home = () => {
               : null
           }
           onClick={() => {
-            setMaxIndex(maxIndex + 3);
+            setMaxIndex(maxIndex + 6);
           }}
           variant="contained"
         >

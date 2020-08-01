@@ -132,7 +132,7 @@ const Nav = (props) => {
       <AppBar color="default" position="fixed">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <img alt="logo" height="50" src={logo}></img>
+            <img alt="logo" height="60" src={logo}></img>
           </Typography>
 
           {isMobile ? (
@@ -178,7 +178,17 @@ const Nav = (props) => {
           >
             <ShoppingCart></ShoppingCart>
           </IconButton>
-          <Button>Login</Button>
+          <Button>
+            <Link
+              style={{
+                color: "black",
+                textDecoration: "none",
+              }}
+              to="/login"
+            >
+              Login
+            </Link>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

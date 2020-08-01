@@ -1,12 +1,15 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+
+// Components
 import Home from "./components/Home";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Nav from "./components/Nav";
 import Sale from "./components/Sale";
 import Footer from "./components/Footer";
-import { Route, Switch } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import Login from "./components/Login";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,6 +34,7 @@ export default function App() {
           />
           <Route exact path="/about" render={(props) => <About {...props} />} />
           <Route exact path="/sale" render={(props) => <Sale {...props} />} />
+          <Route exact path="/login" render={(props) => <Login {...props} />} />
         </Switch>
         <Footer></Footer>
       </div>

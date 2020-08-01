@@ -33,7 +33,9 @@ export default function Item(props) {
   return (
     <Card
       className={classes.root}
-      style={isMobile ? { margin: "auto", minWidth: "300px" } : null}
+      style={
+        isMobile ? { margin: "auto", minWidth: "300px" } : { paddingTop: "8px" }
+      }
     >
       <CardActionArea>
         <CardMedia
@@ -42,7 +44,7 @@ export default function Item(props) {
           title={props.product.name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h6" component="h2">
+          <Typography variant="h6" component="h2">
             {props.product.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
