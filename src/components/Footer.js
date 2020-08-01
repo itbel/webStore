@@ -2,8 +2,8 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 const Footer = () => {
   return (
-    <>
-      <Grid container spacing={3}>
+    <div>
+      <Grid justify="center" container spacing={3}>
         <Grid item>
           <div>
             <h5>Customer Service</h5>
@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 

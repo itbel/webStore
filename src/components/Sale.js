@@ -1,6 +1,11 @@
 import React from "react";
+import Sales from "./Home";
 const Sale = () => {
-  return <h1>Sale</h1>;
+  return (
+    <div>
+      <Sales></Sales>
+    </div>
+  );
 };
 
 export default Sale;

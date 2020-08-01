@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 250,
     maxHeight: 300,
     minHeight: 300,
-    color: "blue",
   },
   media: {
     display: "block",
@@ -54,7 +53,7 @@ export default function Item(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions style={{ justifyContent: "center" }}>
         <Button size="small" color="primary">
           Add to Cart
         </Button>
