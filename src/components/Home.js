@@ -13,7 +13,7 @@ import FireHD8 from "../media/items/firehd8.jpg";
 import Fire7 from "../media/items/fire7.jpg";
 import EchoShow8 from "../media/items/echoshow8.jpg";
 import BlinkXT2 from "../media/items/blinkxt2.jpg";
-
+import Header from "../media/header.png";
 import { Grid, Button } from "@material-ui/core";
 
 const Home = () => {
@@ -34,7 +34,11 @@ const Home = () => {
   ];
   return (
     <div>
+      <Grid container justify="center">
+        <img alt="" src={Header}></img>
+      </Grid>
       <h1 style={{ textAlign: "center" }}>Trending</h1>
+
       <Grid container justify="center" spacing={4}>
         {items.map((product, index) => {
           if (index < maxIndex)
@@ -50,8 +54,13 @@ const Home = () => {
           }
         })}
       </Grid>
-      <Grid style={{ marginTop: "16px" }} align="center" xs={12}>
+      <Grid style={{ marginTop: "32px" }} align="center" xs={12}>
         <Button
+          style={
+            maxIndex > items.length || maxIndex === items.length
+              ? { display: "none" }
+              : null
+          }
           onClick={() => {
             setMaxIndex(maxIndex + 3);
           }}

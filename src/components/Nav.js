@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Drawer } from "@material-ui/core";
+import { Drawer, Button } from "@material-ui/core";
 import { withRouter, Link } from "react-router-dom";
 import logo from "../media/logo_transparent.png";
 import { List, ListItem, ListItemText, ListItemIcon } from "@material-ui/core";
@@ -139,18 +139,6 @@ const Nav = (props) => {
             <>
               <IconButton
                 edge="start"
-                color="inherit"
-                aria-label="menu"
-                className={classes.menuButton}
-                onClick={() => {
-                  setOpenCart(!openCart);
-                }}
-              >
-                <ShoppingCart></ShoppingCart>
-              </IconButton>
-
-              <IconButton
-                edge="start"
                 className={classes.menuButton}
                 color="inherit"
                 aria-label="menu"
@@ -179,6 +167,18 @@ const Nav = (props) => {
               })}
             </div>
           )}
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            className={classes.menuButton}
+            onClick={() => {
+              setOpenCart(!openCart);
+            }}
+          >
+            <ShoppingCart></ShoppingCart>
+          </IconButton>
+          <Button>Login</Button>
         </Toolbar>
       </AppBar>
     </div>

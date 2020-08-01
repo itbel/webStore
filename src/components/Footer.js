@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 const Footer = () => {
   return (
-    <div>
+    <div style={{ marginTop: "32px", backgroundColor: "#f3f3f3" }}>
       <Grid justify="center" container spacing={3}>
         <Grid item>
           <div>

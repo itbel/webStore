@@ -10,6 +10,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    height: "100vh",
+    backgroundColor: "#f3f3f3",
     flexGrow: 1,
     padding: theme.spacing(2),
   },
