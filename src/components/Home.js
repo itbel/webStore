@@ -8,9 +8,7 @@ import RokuExpress from "../media/items/rokuexpress.jpg";
 import Kindle from "../media/items/kindle.jpg";
 import KindlePaperwhite from "../media/items/kindlepaperwhite.jpg";
 import Chromecast from "../media/items/chromecastultra.jpg";
-
-import { Grid } from "@material-ui/core";
-
+import { Grid, Button } from "@material-ui/core";
 const Home = () => {
   const items = [
     { name: "Fire TV Cube", price: 139.99, image: FireCube },
@@ -23,15 +21,22 @@ const Home = () => {
   ];
   return (
     <div>
-      <h1>Trending</h1>
-      <Grid container spacing={0}>
+      <h1 style={{ textAlign: "center" }}>Trending</h1>
+      <Grid container justify="center" spacing={6}>
         {items.map((product, index) => {
-          return (
-            <Grid item>
-              <Item product={product}></Item>
-            </Grid>
-          );
+          if (index < 10)
+            return (
+              <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Item product={product}></Item>
+              </Grid>
+            );
+          else {
+            return null;
+          }
         })}
+        <Grid item xs={12} sm={3}>
+          <Button variant="contained">Load more...</Button>
+        </Grid>
       </Grid>
     </div>
   );

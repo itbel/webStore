@@ -22,6 +22,13 @@ const Footer = () => {
             <h6>Feedback</h6>
           </div>
         </Grid>
+        <Grid item>
+          <div>
+            <h5>Company</h5>
+            <h6>About Us</h6>
+            <h6>Careers</h6>
+          </div>
+        </Grid>
       </Grid>
     </>
   );
