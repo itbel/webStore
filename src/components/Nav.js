@@ -10,8 +10,15 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Drawer, Button } from "@material-ui/core";
 import { withRouter, Link } from "react-router-dom";
 import logo from "../media/logo_transparent.png";
-import { List, ListItem, ListItemText, ListItemIcon } from "@material-ui/core";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  ListSubheader,
+} from "@material-ui/core";
 import IndeterminateCheckBoxOutlinedIcon from "@material-ui/icons/IndeterminateCheckBoxOutlined";
+import AddBoxOutlinedIcon from "@material-ui/icons/AddBoxOutlined";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,6 +74,7 @@ const Nav = (props) => {
         <List>
           {nav.map((text, index) => (
             <Link
+              key={index}
               style={{
                 textDecoration: "none",
                 color: "black",
@@ -92,40 +100,54 @@ const Nav = (props) => {
           setOpenCart(false);
         }}
       >
-        <List style={{ height: "100vh" }}>
+        <List
+          style={{ height: "100vh" }}
+          subheader={
+            <ListSubheader component="div" id="nested-list-subheader">
+              Shopping Car
+            </ListSubheader>
+          }
+        >
           {shoppingCart.items.map((item, index) => (
             <Link
+              key={index}
               style={{
                 textDecoration: "none",
                 color: "black",
               }}
+              to="#"
               onClick={() => {
                 setOpen(false);
               }}
             >
-              <ListItem button key={item.name}>
-                <ListItemText
-                  primary={item.name.toUpperCase()}
-                  secondary={`$${item.price}`}
-                  style={{ width: "200px", textAlign: "left" }}
-                ></ListItemText>
+              <ListItem dense={true} button key={item.name}>
                 <ListItemIcon>
+                  <AddBoxOutlinedIcon></AddBoxOutlinedIcon>
                   <IndeterminateCheckBoxOutlinedIcon></IndeterminateCheckBoxOutlinedIcon>
                 </ListItemIcon>
+                <ListItemText
+                  primary={item.name.toUpperCase()}
+                  secondary={`Qty:${1} $${item.price}`}
+                  style={{ width: "200px", textAlign: "left" }}
+                ></ListItemText>
               </ListItem>
             </Link>
           ))}
           <ListItem>
             <ListItemText style={{ textAlign: "left" }}>
+              Total:
               <b>
-                Total:
-                {shoppingCart.items
-                  .reduce((sum, item) => {
-                    return (sum += item.price);
-                  }, 0)
-                  .toFixed(2)}
+                {" " +
+                  shoppingCart.items
+                    .reduce((sum, item) => {
+                      return (sum += item.price);
+                    }, 0)
+                    .toFixed(2)}
               </b>
             </ListItemText>
+          </ListItem>
+          <ListItem>
+            <Button>Checkout</Button>
           </ListItem>
         </List>
       </Drawer>
@@ -154,6 +176,7 @@ const Nav = (props) => {
               {nav.map((text, index) => {
                 return (
                   <Link
+                    key={index}
                     style={{
                       color: "black",
                       textDecoration: "none",
@@ -178,17 +201,16 @@ const Nav = (props) => {
           >
             <ShoppingCart></ShoppingCart>
           </IconButton>
-          <Button>
-            <Link
-              style={{
-                color: "black",
-                textDecoration: "none",
-              }}
-              to="/login"
-            >
-              Login
-            </Link>
-          </Button>
+
+          <Link
+            style={{
+              color: "black",
+              textDecoration: "none",
+            }}
+            to="/login"
+          >
+            <Button>Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

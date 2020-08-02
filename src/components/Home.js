@@ -43,7 +43,16 @@ const Home = () => {
         {items.map((product, index) => {
           if (index < maxIndex)
             return (
-              <Grid align="center" item xs={12} sm={6} md={4} lg={3} xl={2}>
+              <Grid
+                key={index}
+                align="center"
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+                xl={2}
+              >
                 <Grid item align="center">
                   <Item product={product}></Item>
                 </Grid>
@@ -54,7 +63,7 @@ const Home = () => {
           }
         })}
       </Grid>
-      <Grid style={{ marginTop: "32px" }} align="center" xs={12}>
+      <Grid style={{ marginTop: "32px" }} align="center">
         <Button
           style={
             maxIndex > items.length || maxIndex === items.length

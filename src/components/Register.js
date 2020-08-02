@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField, Grid, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-const Login = () => {
+const Register = () => {
   return (
     <>
       <Grid
@@ -14,7 +14,7 @@ const Login = () => {
         style={{ height: "50vh", margin: "auto" }}
       >
         <Grid style={{ textAlign: "center", marginTop: "15vh" }} item xs={12}>
-          <h2>Login</h2>
+          <h2>Register</h2>
         </Grid>
         <Grid container spacing={2} style={{ textAlign: "center" }}>
           <Grid item xs={12}>
@@ -23,16 +23,16 @@ const Login = () => {
           <Grid item xs={12}>
             <TextField label="Password"></TextField>
           </Grid>
-
           <Grid item xs={12}>
-            <Button style={{ marginRight: "2px" }}>Login</Button>
-
+            <TextField label="Email"></TextField>
+          </Grid>
+          <Grid item xs={12}>
             <Link
               style={{
                 color: "black",
                 textDecoration: "none",
               }}
-              to="/register"
+              to="/login"
             >
               <Button>Register</Button>
             </Link>
@@ -43,4 +43,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
