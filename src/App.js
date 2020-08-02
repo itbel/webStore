@@ -5,12 +5,13 @@ import { makeStyles } from "@material-ui/core/styles";
 // Components
 import Home from "./components/Home";
 import Contact from "./components/Contact";
-import About from "./components/About";
+import Support from "./components/Support";
 import Nav from "./components/Nav";
 import Sale from "./components/Sale";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import ItemInfo from "./components/ItemInfo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +33,11 @@ export default function App() {
             path="/contact"
             render={(props) => <Contact {...props} />}
           />
-          <Route exact path="/about" render={(props) => <About {...props} />} />
+          <Route
+            exact
+            path="/support"
+            render={(props) => <Support {...props} />}
+          />
           <Route exact path="/sale" render={(props) => <Sale {...props} />} />
           <Route exact path="/login" render={(props) => <Login {...props} />} />
           <Route
@@ -40,6 +45,7 @@ export default function App() {
             path="/register"
             render={(props) => <Register {...props} />}
           />
+          <Route path="/product" render={(props) => <ItemInfo {...props} />} />
         </Switch>
         <Footer></Footer>
       </div>

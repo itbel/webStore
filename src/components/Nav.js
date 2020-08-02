@@ -58,7 +58,7 @@ const Nav = (props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [openCart, setOpenCart] = useState(false);
-  const nav = ["home", "sale", "about", "contact"];
+  const nav = ["home", "sale", "support"];
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
@@ -91,6 +91,11 @@ const Nav = (props) => {
               </ListItem>
             </Link>
           ))}
+          <ListItem button>
+            <ListItemText style={{ width: "200px", textAlign: "center" }}>
+              <b>ALL PRODUCTS</b>
+            </ListItemText>
+          </ListItem>
         </List>
       </Drawer>
       <Drawer
@@ -188,6 +193,13 @@ const Nav = (props) => {
                   </Link>
                 );
               })}
+              <List>
+                <ListItem button style={{ padding: "5px" }}>
+                  <ListItemText>
+                    <b>ALL PRODUCTS</b>
+                  </ListItemText>
+                </ListItem>
+              </List>
             </div>
           )}
           <IconButton

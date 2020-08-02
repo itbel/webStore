@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div>
       <Grid container justify="center">
-        <img alt="" src={Header}></img>
+        {/*<img alt="" src={Header}></img>*/}
       </Grid>
       <h1 style={{ textAlign: "center" }}>Trending</h1>
 

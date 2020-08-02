@@ -8,6 +8,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 250,
@@ -26,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Item(props) {
+  let history = useHistory();
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
@@ -37,7 +40,11 @@ export default function Item(props) {
         isMobile ? { margin: "auto", minWidth: "300px" } : { paddingTop: "8px" }
       }
     >
-      <CardActionArea>
+      <CardActionArea
+        onClick={() => {
+          history.push(`/product/${props.product.name}`);
+        }}
+      >
         <CardMedia
           className={classes.media}
           image={props.product.image}
