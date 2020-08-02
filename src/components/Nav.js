@@ -104,7 +104,7 @@ const Nav = (props) => {
           style={{ height: "100vh" }}
           subheader={
             <ListSubheader component="div" id="nested-list-subheader">
-              Shopping Car
+              Shopping Cart
             </ListSubheader>
           }
         >

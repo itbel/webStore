@@ -8,7 +8,7 @@ const Footer = () => {
       }}
     >
       <Grid justify="center" container spacing={3} alignItems="flex-start">
-        <Grid item column>
+        <Grid item>
           <h5>Customer Service</h5>
           <h6>Help Center</h6>
           <h6>Track an Order</h6>
