@@ -13,7 +13,6 @@ import FireHD8 from "../media/items/firehd8.jpg";
 import Fire7 from "../media/items/fire7.jpg";
 import EchoShow8 from "../media/items/echoshow8.jpg";
 import BlinkXT2 from "../media/items/blinkxt2.jpg";
-import Header from "../media/header.png";
 import { Grid, Button } from "@material-ui/core";
 
 const Home = () => {
