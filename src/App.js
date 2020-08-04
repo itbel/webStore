@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useMediaQuery } from "@material-ui/core";
 // Components
 import Home from "./components/Home";
 import Contact from "./components/Contact";
@@ -13,14 +13,16 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import ItemInfo from "./components/ItemInfo";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: "100vh",
-    flexGrow: 1,
-    padding: theme.spacing(2),
-  },
-}));
 export default function App() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      height: "100vh",
+      flexGrow: 1,
+      padding: isMobile ? theme.spacing(0) : theme.spacing(2),
+    },
+  }));
   const classes = useStyles();
   return (
     <>

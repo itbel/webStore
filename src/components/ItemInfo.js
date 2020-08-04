@@ -7,7 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-
+import { Button } from "@material-ui/core";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -41,75 +41,75 @@ const ItemInfo = (props) => {
     <>
       <Grid xs={12} sm={9} md={6} lg={6} xl={6} item style={{ margin: "auto" }}>
         <Box boxShadow={3} m={3} p={0}>
-          <Grid style={{ minHeight: "50vh" }} container direction="row">
-            <Grid
-              item
-              xs={12}
-              style={{
-                paddingRight: "16px",
-              }}
-            >
-              <Typography align={isMobile ? "center" : "right"} variant="h5">
+          <Grid
+            style={{ minHeight: "50vh", backgroundColor: "#fefefe" }}
+            container
+            direction="row"
+          >
+            <Grid item xs={12}>
+              <Typography align={"center"} variant="h5">
                 {item.name}
               </Typography>
-              <Typography
-                align={isMobile ? "center" : "right"}
-                variant="subtitle2"
-              >
+              <Typography align={"center"} variant="subtitle2">
                 ${item.price}
               </Typography>
             </Grid>
 
-            <Grid container xs={12} md={12} xl={6} lg={6} alignItems="center">
+            <Grid
+              item
+              xs={12}
+              lg={6}
+              style={{ textAlign: "center", padding: "14px" }}
+            >
               <img width={300} alt="" src={item.image}></img>
             </Grid>
+
             <Grid item xl={6} lg={6} md={10} xs={12}>
-              <Typography align="right" variant="p">
-                {item.description !== undefined ? (
-                  item.description
-                ) : (
-                  <>
-                    <ul style={{ textAlign: "left" }}>
-                      <li>The fastest, most powerful Fire TV.</li>
-                      <li>
-                        Control compatible soundbar and A/V receiver. Over the
-                        air antenna, live cable and satellite support are coming
-                        soon.
-                      </li>
-                      <li>
-                        With the built-in speaker, ask Alexa to check the
-                        weather, turn off the lights, and more – even when the
-                        TV is off.
-                      </li>
-                      <li>
-                        Instant access to 4K ultra HD content, plus support for
-                        Dolby Vision, HDR, HDR10+, and Dolby Atmos.
-                      </li>
-                      <li>
-                        Watch favorites from Netflix, Disney+, Prime Video,
-                        YouTube, Apple TV, Crave, CTV, NHL, Citytv Video, FXNOW
-                        Canada, and others. Subscription fees may apply.
-                      </li>
-                      <li>
-                        Designed to protect your privacy - Built with privacy
-                        protections and controls, including a microphone off
-                        button that electronically disconnects the microphones.
-                      </li>
-                      <li>
-                        With Prime, watch TV episodes and movies such as
-                        "Hanna".
-                      </li>
-                      <li>
-                        Use the power and volume buttons on your Alexa Voice
-                        Remote to control your TV without making a sound.
-                      </li>
-                    </ul>
-                  </>
-                )}
-              </Typography>
+              {item.description !== undefined ? (
+                item.description
+              ) : (
+                <>
+                  <ul style={{ textAlign: "left" }}>
+                    <li>The fastest, most powerful Fire TV.</li>
+                    <li>
+                      Control compatible soundbar and A/V receiver. Over the air
+                      antenna, live cable and satellite support are coming soon.
+                    </li>
+                    <li>
+                      With the built-in speaker, ask Alexa to check the weather,
+                      turn off the lights, and more – even when the TV is off.
+                    </li>
+                    <li>
+                      Instant access to 4K ultra HD content, plus support for
+                      Dolby Vision, HDR, HDR10+, and Dolby Atmos.
+                    </li>
+                    <li>
+                      Watch favorites from Netflix, Disney+, Prime Video,
+                      YouTube, Apple TV, Crave, CTV, NHL, Citytv Video, FXNOW
+                      Canada, and others. Subscription fees may apply.
+                    </li>
+                    <li>
+                      Designed to protect your privacy - Built with privacy
+                      protections and controls, including a microphone off
+                      button that electronically disconnects the microphones.
+                    </li>
+                    <li>
+                      With Prime, watch TV episodes and movies such as "Hanna".
+                    </li>
+                    <li>
+                      Use the power and volume buttons on your Alexa Voice
+                      Remote to control your TV without making a sound.
+                    </li>
+                  </ul>
+                </>
+              )}
             </Grid>
-            <Grid item xs={12} style={{ paddingTop: "32px" }}>
-              <AppBar color="transparent" position="static">
+            <Grid item style={{ margin: "auto", paddingBottom: "16px" }}>
+              <Button variant="contained">Add to Cart</Button>
+            </Grid>
+
+            <Grid item xs={12}>
+              <AppBar color="default" position="static">
                 <Tabs
                   value={value}
                   onChange={handleChange}
@@ -137,13 +137,49 @@ const ItemInfo = (props) => {
                 </Tabs>
               </AppBar>
               <TabPanel value={value} index="one">
-                Product Description
+                With Alexa on Fire TV Cube, you can control compatible TVs,
+                soundbars, and A/V receivers from top brands like Samsung, Sony,
+                LG, Vizio, and more. Over the air antenna, live cable and
+                satellite support are coming soon. Learn more about supported
+                devices. Not every app has the same voice control experience.
+                Many apps allow you to control playback, and use Alexa on Fire
+                TV Cube to navigate and browse content within the app by saying
+                “Alexa, go right” or “Alexa, select” and more. Some additional
+                apps including Netflix and Prime Video have integrated further
+                with Alexa, allowing you to browse and search within the apps,
+                dive into specific titles, and more. Dolby Atmos is available on
+                select Prime Video and Netflix titles when connected to
+                compatible equipment. HDMI cable is sold separately.
               </TabPanel>
               <TabPanel value={value} index="two">
-                Product Details
+                With Alexa on Fire TV Cube, you can control compatible TVs,
+                soundbars, and A/V receivers from top brands like Samsung, Sony,
+                LG, Vizio, and more. Over the air antenna, live cable and
+                satellite support are coming soon. Learn more about supported
+                devices. Not every app has the same voice control experience.
+                Many apps allow you to control playback, and use Alexa on Fire
+                TV Cube to navigate and browse content within the app by saying
+                “Alexa, go right” or “Alexa, select” and more. Some additional
+                apps including Netflix and Prime Video have integrated further
+                with Alexa, allowing you to browse and search within the apps,
+                dive into specific titles, and more. Dolby Atmos is available on
+                select Prime Video and Netflix titles when connected to
+                compatible equipment. HDMI cable is sold separately.
               </TabPanel>
               <TabPanel value={value} index="three">
-                Reviews
+                With Alexa on Fire TV Cube, you can control compatible TVs,
+                soundbars, and A/V receivers from top brands like Samsung, Sony,
+                LG, Vizio, and more. Over the air antenna, live cable and
+                satellite support are coming soon. Learn more about supported
+                devices. Not every app has the same voice control experience.
+                Many apps allow you to control playback, and use Alexa on Fire
+                TV Cube to navigate and browse content within the app by saying
+                “Alexa, go right” or “Alexa, select” and more. Some additional
+                apps including Netflix and Prime Video have integrated further
+                with Alexa, allowing you to browse and search within the apps,
+                dive into specific titles, and more. Dolby Atmos is available on
+                select Prime Video and Netflix titles when connected to
+                compatible equipment. HDMI cable is sold separately.
               </TabPanel>
             </Grid>
           </Grid>
