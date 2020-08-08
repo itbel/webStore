@@ -22,9 +22,13 @@ server.route("/login").post((req, res, next) => {
                 }
               );
               res.header("auth-token", token).send(token);
-            } else res.status(401).json({ msg: "Invalid Password" });
+            } else {
+              console.log("invalid pass");
+              res.status(401).json({ msg: "Invalid Password" });
+            }
           });
         } else {
+          console.log("user not found");
           res.status(401).json({ msg: "User not found" });
         }
       }

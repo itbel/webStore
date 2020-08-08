@@ -1,7 +1,28 @@
 import React from "react";
 import { TextField, Grid, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 const Register = () => {
+  const registerCall = () => {
+    axios
+      .post(
+        `http://localhost:3005/api/users/register`,
+        {
+          username: "testing",
+          password: "testing",
+          name: "testing",
+          email: "testing@gmail.com",
+        },
+        { timeout: 2000 }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <Grid
@@ -34,7 +55,7 @@ const Register = () => {
               }}
               to="/login"
             >
-              <Button>Register</Button>
+              <Button onClick={registerCall}>Register</Button>
             </Link>
           </Grid>
         </Grid>

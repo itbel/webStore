@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextField, Grid, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import axios from "axios";
 const Login = () => {
+  const [data, setData] = useState({
+    username: "",
+    password: "",
+    errorTxt: "",
+  });
+  const loginCall = () => {
+    axios
+      .post(
+        `http://localhost:3005/api/users/login`,
+        {
+          username: data.username,
+          password: data.password,
+        },
+        { timeout: 2000 }
+      )
+      .then((response) => {
+        setData({ ...data, errorTxt: "" });
+      })
+      .catch((error) => {
+        setData({ ...data, errorTxt: error.message || error.statusText });
+      });
+  };
   return (
     <>
       <Grid
@@ -18,14 +41,32 @@ const Login = () => {
         </Grid>
         <Grid container spacing={2} style={{ textAlign: "center" }}>
           <Grid item xs={12}>
-            <TextField label="Username"></TextField>
+            <TextField
+              required
+              onChange={(e) => {
+                setData({ ...data, username: e.target.value });
+              }}
+              label="Username"
+            ></TextField>
           </Grid>
           <Grid item xs={12}>
-            <TextField label="Password"></TextField>
+            <TextField
+              required
+              onChange={(e) => {
+                setData({ ...data, password: e.target.value });
+              }}
+              type="password"
+              label="Password"
+            ></TextField>
+            <p style={{ color: "red" }}>
+              {data.errorTxt.length > 0 ? data.errorTxt : ""}
+            </p>
           </Grid>
 
           <Grid item xs={12}>
-            <Button style={{ marginRight: "2px" }}>Login</Button>
+            <Button onClick={loginCall} style={{ marginRight: "2px" }}>
+              Login
+            </Button>
 
             <Link
               style={{

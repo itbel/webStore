@@ -16,11 +16,12 @@ const Order = new Schema({
   payment: {
     method: { type: String },
     transaction_id: { type: String },
+    status: { type: String, enum: ["accepted", "declined"] },
   },
-  tracking: {
+  order_status: {
     courier_name: { type: String },
     tracking_number: { type: String },
-    status: { type: String },
+    status: { type: String, enum: ["order_received", "order_shipped"] },
   },
 });
 
