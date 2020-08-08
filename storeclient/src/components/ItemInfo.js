@@ -6,7 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -21,13 +21,12 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <Typography variant="subtitle2">{children}</Typography>
         </Box>
       )}
     </div>
   );
 }
-const useStyles = makeStyles((theme) => ({}));
 
 const ItemInfo = (props) => {
   const theme = useTheme();
@@ -42,7 +41,10 @@ const ItemInfo = (props) => {
       <Grid xs={12} sm={9} md={6} lg={6} xl={6} item style={{ margin: "auto" }}>
         <Box boxShadow={3} m={3} p={0}>
           <Grid
-            style={{ minHeight: "50vh", backgroundColor: "#fefefe" }}
+            style={{
+              minHeight: "70vh",
+              backgroundColor: "#fefefe",
+            }}
             container
             direction="row"
           >
@@ -53,6 +55,9 @@ const ItemInfo = (props) => {
               <Typography align={"center"} variant="subtitle2">
                 ${item.price}
               </Typography>
+              <Typography align={"center"} variant="subtitle2">
+                Stock: In Stock
+              </Typography>
             </Grid>
 
             <Grid
@@ -62,14 +67,21 @@ const ItemInfo = (props) => {
               style={{ textAlign: "center", padding: "14px" }}
             >
               <img width={300} alt="" src={item.image}></img>
+              <Grid align={"center"}>
+                <Button variant="contained">Add to cart</Button>
+              </Grid>
             </Grid>
-
             <Grid item xl={6} lg={6} md={10} xs={12}>
               {item.description !== undefined ? (
                 item.description
               ) : (
                 <>
-                  <ul style={{ textAlign: "left" }}>
+                  <ul
+                    style={{
+                      textAlign: "left",
+                      paddingRight: "48px",
+                    }}
+                  >
                     <li>The fastest, most powerful Fire TV.</li>
                     <li>
                       Control compatible soundbar and A/V receiver. Over the air
@@ -104,18 +116,34 @@ const ItemInfo = (props) => {
                 </>
               )}
             </Grid>
-            <Grid item style={{ margin: "auto", paddingBottom: "16px" }}>
-              <Button variant="contained">Add to Cart</Button>
-            </Grid>
-
-            <Grid item xs={12}>
+            <Grid
+              item
+              xs={12}
+              style={
+                isMobile
+                  ? {
+                      minHeight: "200px",
+                      maxHeight: "450px",
+                      overflowY: "auto",
+                    }
+                  : {
+                      minHeight: "150px",
+                      overflowY: "auto",
+                    }
+              }
+            >
               <AppBar color="default" position="static">
                 <Tabs
+                  centered
                   value={value}
                   onChange={handleChange}
                   aria-label="wrapped label tabs example"
+                  style={{ fontSize: "2.0em" }}
                 >
                   <Tab
+                    style={
+                      isMobile ? { fontSize: "0.7rem" } : { fontSize: "1.0rem" }
+                    }
                     value="one"
                     label="Product Description"
                     wrapped
@@ -123,12 +151,18 @@ const ItemInfo = (props) => {
                     aria-controls={`wrapped-tabpanel-one`}
                   />
                   <Tab
+                    style={
+                      isMobile ? { fontSize: "0.7rem" } : { fontSize: "1.0rem" }
+                    }
                     value="two"
                     label="Product Details"
                     id={`wrapped-tab-two`}
                     aria-controls={`wrapped-tabpanel-two`}
                   />
                   <Tab
+                    style={
+                      isMobile ? { fontSize: "0.7rem" } : { fontSize: "1.0rem" }
+                    }
                     value="three"
                     label="Reviews"
                     id={`wrapped-tab-three`}
@@ -149,7 +183,20 @@ const ItemInfo = (props) => {
                 with Alexa, allowing you to browse and search within the apps,
                 dive into specific titles, and more. Dolby Atmos is available on
                 select Prime Video and Netflix titles when connected to
-                compatible equipment. HDMI cable is sold separately.
+                compatible equipment. HDMI cable is sold separately. With Alexa
+                on Fire TV Cube, you can control compatible TVs, soundbars, and
+                A/V receivers from top brands like Samsung, Sony, LG, Vizio, and
+                more. Over the air antenna, live cable and satellite support are
+                coming soon. Learn more about supported devices. Not every app
+                has the same voice control experience. Many apps allow you to
+                control playback, and use Alexa on Fire TV Cube to navigate and
+                browse content within the app by saying “Alexa, go right” or
+                “Alexa, select” and more. Some additional apps including Netflix
+                and Prime Video have integrated further with Alexa, allowing you
+                to browse and search within the apps, dive into specific titles,
+                and more. Dolby Atmos is available on select Prime Video and
+                Netflix titles when connected to compatible equipment. HDMI
+                cable is sold separately.
               </TabPanel>
               <TabPanel value={value} index="two">
                 With Alexa on Fire TV Cube, you can control compatible TVs,

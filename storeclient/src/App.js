@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import Support from "./components/Support";
 import Nav from "./components/Nav";
-import Sale from "./components/Sale";
+
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -40,7 +40,6 @@ export default function App() {
             path="/support"
             render={(props) => <Support {...props} />}
           />
-          <Route exact path="/sale" render={(props) => <Sale {...props} />} />
           <Route exact path="/login" render={(props) => <Login {...props} />} />
           <Route
             exact

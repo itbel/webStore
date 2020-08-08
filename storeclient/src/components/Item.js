@@ -19,8 +19,6 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
     height: 150,
@@ -37,7 +35,9 @@ export default function Item(props) {
     <Card
       className={classes.root}
       style={
-        isMobile ? { margin: "auto", minWidth: "300px" } : { paddingTop: "8px" }
+        isMobile
+          ? { marginBottom: "32px", minWidth: "300px" }
+          : { paddingTop: "8px", marginBottom: "32px" }
       }
     >
       <CardActionArea

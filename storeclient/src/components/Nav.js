@@ -19,7 +19,6 @@ import {
 } from "@material-ui/core";
 import IndeterminateCheckBoxOutlinedIcon from "@material-ui/icons/IndeterminateCheckBoxOutlined";
 import AddBoxOutlinedIcon from "@material-ui/icons/AddBoxOutlined";
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -58,7 +57,7 @@ const Nav = (props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [openCart, setOpenCart] = useState(false);
-  const nav = ["home", "sale", "support"];
+  const nav = ["home", "support"];
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
@@ -92,7 +91,9 @@ const Nav = (props) => {
             </Link>
           ))}
           <ListItem button>
-            <ListItemText style={{ width: "200px", textAlign: "center" }}>
+            <ListItemText
+              style={{ width: "200px", textAlign: "center", display: "none" }}
+            >
               <b>ALL PRODUCTS</b>
             </ListItemText>
           </ListItem>
@@ -159,7 +160,9 @@ const Nav = (props) => {
       <AppBar color="default" position="fixed">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <img alt="logo" height="60" src={logo}></img>
+            <Link to="/">
+              <img alt="logo" height="60" src={logo}></img>
+            </Link>
           </Typography>
 
           {isMobile ? (
@@ -194,7 +197,7 @@ const Nav = (props) => {
                 );
               })}
               <List>
-                <ListItem button style={{ padding: "5px" }}>
+                <ListItem button style={{ padding: "5px", display: "none" }}>
                   <ListItemText>
                     <b>ALL PRODUCTS</b>
                   </ListItemText>

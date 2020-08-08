@@ -30,15 +30,40 @@ const Home = () => {
     { name: "Fire 7", price: 69.99, image: Fire7 },
     { name: "Echo Show 8", price: 114.99, image: EchoShow8 },
     { name: "Blink XT2", price: 89.99, image: BlinkXT2 },
+    { name: "Kindle Paperwhite", price: 139.99, image: KindlePaperwhite },
+    { name: "Chromecast Ultra", price: 89.99, image: Chromecast },
+    { name: "Echo Dot", price: 69.99, image: Echo },
+    { name: "Fire HD 8", price: 129.99, image: FireHD8 },
+    { name: "Fire 7", price: 69.99, image: Fire7 },
+    { name: "Echo Show 8", price: 114.99, image: EchoShow8 },
+    { name: "Blink XT2", price: 89.99, image: BlinkXT2 },
+    { name: "Kindle Paperwhite", price: 139.99, image: KindlePaperwhite },
+    { name: "Chromecast Ultra", price: 89.99, image: Chromecast },
+    { name: "Echo Dot", price: 69.99, image: Echo },
+    { name: "Fire HD 8", price: 129.99, image: FireHD8 },
+    { name: "Fire 7", price: 69.99, image: Fire7 },
+    { name: "Echo Show 8", price: 114.99, image: EchoShow8 },
+    { name: "Blink XT2", price: 89.99, image: BlinkXT2 },
+    { name: "Kindle Paperwhite", price: 139.99, image: KindlePaperwhite },
+    { name: "Chromecast Ultra", price: 89.99, image: Chromecast },
+    { name: "Echo Dot", price: 69.99, image: Echo },
+    { name: "Fire HD 8", price: 129.99, image: FireHD8 },
+    { name: "Fire 7", price: 69.99, image: Fire7 },
+    { name: "Echo Show 8", price: 114.99, image: EchoShow8 },
+    { name: "Blink XT2", price: 89.99, image: BlinkXT2 },
+    { name: "Kindle Paperwhite", price: 139.99, image: KindlePaperwhite },
+    { name: "Chromecast Ultra", price: 89.99, image: Chromecast },
+    { name: "Echo Dot", price: 69.99, image: Echo },
+    { name: "Fire HD 8", price: 129.99, image: FireHD8 },
+    { name: "Fire 7", price: 69.99, image: Fire7 },
+    { name: "Echo Show 8", price: 114.99, image: EchoShow8 },
+    { name: "Blink XT2", price: 89.99, image: BlinkXT2 },
   ];
   return (
-    <div>
-      <Grid container justify="center">
-        {/*<img alt="" src={Header}></img>*/}
-      </Grid>
-      <h1 style={{ textAlign: "center" }}>Trending</h1>
+    <div style={{ minHeight: "70vh" }}>
+      <h1 style={{ textAlign: "center" }}>Products</h1>
 
-      <Grid container justify="center" spacing={4}>
+      <Grid container justify="center">
         {items.map((product, index) => {
           if (index < maxIndex)
             return (
