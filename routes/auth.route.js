@@ -55,8 +55,8 @@ server.route("/register").post((req, res, next) => {
                     {
                       username: req.body.username,
                       password: hash,
-                      name: req.body.name,
                       email: req.body.email,
+                      name: req.body.name,
                     },
                     (err4, doc3) => {
                       if (err4) next(err4);

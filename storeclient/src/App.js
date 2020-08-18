@@ -48,7 +48,7 @@ export default function App() {
           />
           <Route path="/product" render={(props) => <ItemInfo {...props} />} />
         </Switch>
-        <Footer></Footer>
+        {false ? <Footer></Footer> : null}
       </div>
     </>
   );

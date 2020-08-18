@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const morgan = require("morgan");
 const helmet = require("helmet");
-
+const https = require("https");
 require("dotenv").config();
 
 mongoose
@@ -33,7 +33,7 @@ app.use(helmet());
 app.use("/api/users", usersRouter);
 
 app.use((err, req, res, next) => {
-  // handle errors in here
+  console.log(err);
   res.status(500).send("Internal Server Error!");
 });
 
