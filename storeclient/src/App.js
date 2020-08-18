@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ItemInfo from "./components/ItemInfo";
+import AddProduct from "./components/AddProduct";
 
 export default function App() {
   const theme = useTheme();
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="/product" render={(props) => <ItemInfo {...props} />} />
         </Switch>
         {false ? <Footer></Footer> : null}
+        <AddProduct></AddProduct>
       </div>
     </>
   );
