@@ -76,7 +76,7 @@ const AddProduct = () => {
           </Grid>
           <Grid item xs={12}>
             <Button onClick={() => {}} style={{ marginRight: "2px" }}>
-              Add
+              Enter
             </Button>
           </Grid>
         </Grid>
