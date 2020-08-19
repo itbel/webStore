@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { TextField, Grid, Button } from "@material-ui/core";
+import { TextField, Grid, Button, IconButton } from "@material-ui/core";
 import ImageIcon from "@material-ui/icons/Image";
 
 const AddProduct = () => {
   const [data, setData] = useState({
-    item_name: "",
+    product_name: "",
     manufacturer: "",
     sku: "",
-    item_description: "",
+    description: "",
+    details: "",
     price: "",
     stock: 0,
   });
@@ -30,25 +31,43 @@ const AddProduct = () => {
             <TextField
               required
               onChange={(e) => {
-                setData({ ...data, item_name: e.target.value });
+                setData({ ...data, product_name: e.target.value });
               }}
-              label="Item Name"
+              label="Product Name"
             ></TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
               required
               onChange={(e) => {
-                setData({ ...data, item_name: e.target.value });
+                setData({ ...data, manufacturer: e.target.value });
               }}
               label="Manufacturer"
             ></TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
+              onChange={(e) => {
+                setData({ ...data, description: e.target.value });
+              }}
+              label="Product Description"
+              multiline={true}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              onChange={(e) => {
+                setData({ ...data, details: e.target.value });
+              }}
+              label="Product Details"
+              multiline={true}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
               required
               onChange={(e) => {
-                setData({ ...data, item_name: e.target.value });
+                setData({ ...data, sku: e.target.value });
               }}
               label="SKU"
             ></TextField>
@@ -57,7 +76,7 @@ const AddProduct = () => {
             <TextField
               required
               onChange={(e) => {
-                setData({ ...data, item_name: e.target.value });
+                setData({ ...data, stock: e.target.value });
               }}
               label="Stock"
             ></TextField>
@@ -66,16 +85,23 @@ const AddProduct = () => {
             <TextField
               required
               onChange={(e) => {
-                setData({ ...data, item_name: e.target.value });
+                setData({ ...data, price: e.target.value });
               }}
               label="Price"
             ></TextField>
           </Grid>
           <Grid item xs={12}>
-            <ImageIcon></ImageIcon>
+            <IconButton>
+              <ImageIcon></ImageIcon>
+            </IconButton>
           </Grid>
           <Grid item xs={12}>
-            <Button onClick={() => {}} style={{ marginRight: "2px" }}>
+            <Button
+              onClick={() => {
+                console.log(data);
+              }}
+              style={{ marginRight: "2px" }}
+            >
               Enter
             </Button>
           </Grid>
