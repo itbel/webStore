@@ -5,6 +5,7 @@ const app = express();
 const morgan = require("morgan");
 const helmet = require("helmet");
 const https = require("https");
+
 require("dotenv").config();
 
 mongoose
@@ -23,6 +24,7 @@ mongoose
 mongoose.set("useCreateIndex", true);
 
 const usersRouter = require("./routes/auth.route");
+const productsRouter = require("./routes/product.route");
 
 app.use(morgan("tiny"));
 app.use(cors());
@@ -31,6 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
 
 app.use("/api/users", usersRouter);
+app.use("/api/products", productsRouter);
 
 app.use((err, req, res, next) => {
   console.log(err);

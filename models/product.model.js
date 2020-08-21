@@ -10,8 +10,9 @@ const Product = new Schema({
   product_reviews: [
     {
       rating: {
-        enum: [0, 1, 2, 3, 4, 5, "No Rating"],
-        default: "No Rating",
+        type: Number,
+        enum: [-1, 0, 1, 2, 3, 4, 5],
+        default: -1,
       },
       review_description: { type: String },
       reviewer_name: { type: String },
