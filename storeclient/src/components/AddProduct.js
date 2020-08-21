@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Grid, Button, IconButton } from "@material-ui/core";
 import ImageIcon from "@material-ui/icons/Image";
-
+import axios from "axios";
 const AddProduct = () => {
   const [data, setData] = useState({
     product_name: "",
@@ -12,7 +12,7 @@ const AddProduct = () => {
     price: "",
     stock: 0,
   });
-  const validateProduct = (data) => {
+  const validateProduct = () => {
     let msg = "";
     if (data.product_name.length < 2 || data.product_name.length > 30)
       msg += "Product name failed to validate.\n";
@@ -34,7 +34,26 @@ const AddProduct = () => {
     if (!/^\d+$/.test(data.price) || data.price < 1 || data.price > 100000)
       msg += "Failed to validate price.\n";
 
-    return msg.length === 0 ? true : msg;
+    return msg;
+  };
+  const request = () => {
+    axios
+      .post("http://localhost:3005/api/products/manage", {
+        product_name: data.product_name,
+        product_manufacturer_name: data.product_manufacturer_name,
+        product_image_url: data.product_image_url,
+        product_description: data.product_description,
+        product_details: data.product_details,
+        product_sku: data.product_sku,
+        product_stock: data.product_stock,
+        product_price: data.product_price,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <>
@@ -123,7 +142,11 @@ const AddProduct = () => {
           <Grid item xs={12}>
             <Button
               onClick={() => {
-                console.log(validateProduct(data));
+                if (validateProduct(data).length === 0) {
+                  request();
+                } else {
+                  console.log(validateProduct(data));
+                }
               }}
               style={{ marginRight: "2px" }}
             >
