@@ -12,6 +12,30 @@ const AddProduct = () => {
     price: "",
     stock: 0,
   });
+  const validateProduct = (data) => {
+    let msg = "";
+    if (data.product_name.length < 2 || data.product_name.length > 30)
+      msg += "Product name failed to validate.\n";
+    if (data.manufacturer.length < 2 || data.manufacturer.length > 30)
+      msg += "Product manufacturer failed to validate.\n";
+    if (data.sku.length < 2 || data.sku.length > 30)
+      msg += "Product SKU failed to validate.\n";
+    if (data.description.length < 2 || data.description.length > 1000)
+      msg += "Product description failed to validate.\n";
+    if (data.details.length < 2 || data.details.length > 1000)
+      msg += "Product details failed to validate.\n";
+    if (
+      !/^\d+$/.test(data.stock) ||
+      data.stock < 0 ||
+      data.stock > 100000 ||
+      data.stock.length === 0
+    )
+      msg += "Failed to validate stock.\n";
+    if (!/^\d+$/.test(data.price) || data.price < 1 || data.price > 100000)
+      msg += "Failed to validate price.\n";
+
+    return msg.length === 0 ? true : msg;
+  };
   return (
     <>
       <Grid
@@ -78,6 +102,7 @@ const AddProduct = () => {
               onChange={(e) => {
                 setData({ ...data, stock: e.target.value });
               }}
+              defaultValue={0}
               label="Stock"
             ></TextField>
           </Grid>
@@ -98,7 +123,7 @@ const AddProduct = () => {
           <Grid item xs={12}>
             <Button
               onClick={() => {
-                console.log(data);
+                console.log(validateProduct(data));
               }}
               style={{ marginRight: "2px" }}
             >
