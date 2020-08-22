@@ -5,33 +5,44 @@ import axios from "axios";
 const AddProduct = () => {
   const [data, setData] = useState({
     product_name: "",
-    manufacturer: "",
-    sku: "",
-    description: "",
-    details: "",
-    price: "",
-    stock: 0,
+    product_manufacturer_name: "",
+    product_image_url: "",
+    product_sku: "",
+    product_description: "",
+    product_details: "",
+    product_price: "",
+    product_stock: 0,
   });
   const validateProduct = () => {
     let msg = "";
     if (data.product_name.length < 2 || data.product_name.length > 30)
       msg += "Product name failed to validate.\n";
-    if (data.manufacturer.length < 2 || data.manufacturer.length > 30)
+    if (
+      data.product_manufacturer_name.length < 2 ||
+      data.product_manufacturer_name.length > 30
+    )
       msg += "Product manufacturer failed to validate.\n";
-    if (data.sku.length < 2 || data.sku.length > 30)
+    if (data.product_sku.length < 2 || data.product_sku.length > 30)
       msg += "Product SKU failed to validate.\n";
-    if (data.description.length < 2 || data.description.length > 1000)
+    if (
+      data.product_description.length < 2 ||
+      data.product_description.length > 1000
+    )
       msg += "Product description failed to validate.\n";
-    if (data.details.length < 2 || data.details.length > 1000)
+    if (data.product_details.length < 2 || data.product_details.length > 1000)
       msg += "Product details failed to validate.\n";
     if (
-      !/^\d+$/.test(data.stock) ||
-      data.stock < 0 ||
-      data.stock > 100000 ||
-      data.stock.length === 0
+      !/^\d+$/.test(data.product_stock) ||
+      data.product_stock < 0 ||
+      data.product_stock > 100000 ||
+      data.product_stock.length === 0
     )
       msg += "Failed to validate stock.\n";
-    if (!/^\d+$/.test(data.price) || data.price < 1 || data.price > 100000)
+    if (
+      !/^\d+$/.test(data.product_price) ||
+      data.product_price < 1 ||
+      data.product_price > 100000
+    )
       msg += "Failed to validate price.\n";
 
     return msg;
@@ -49,7 +60,16 @@ const AddProduct = () => {
         product_price: data.product_price,
       })
       .then((response) => {
-        console.log(response);
+        setData({
+          product_name: "",
+          product_manufacturer_name: "",
+          product_image_url: "",
+          product_sku: "",
+          product_description: "",
+          product_details: "",
+          product_price: "",
+          product_stock: 0,
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -76,6 +96,7 @@ const AddProduct = () => {
               onChange={(e) => {
                 setData({ ...data, product_name: e.target.value });
               }}
+              value={data.product_name}
               label="Product Name"
             ></TextField>
           </Grid>
@@ -83,26 +104,29 @@ const AddProduct = () => {
             <TextField
               required
               onChange={(e) => {
-                setData({ ...data, manufacturer: e.target.value });
+                setData({ ...data, product_manufacturer_name: e.target.value });
               }}
+              value={data.product_manufacturer_name}
               label="Manufacturer"
             ></TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
               onChange={(e) => {
-                setData({ ...data, description: e.target.value });
+                setData({ ...data, product_description: e.target.value });
               }}
               label="Product Description"
+              value={data.product_description}
               multiline={true}
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
               onChange={(e) => {
-                setData({ ...data, details: e.target.value });
+                setData({ ...data, product_details: e.target.value });
               }}
               label="Product Details"
+              value={data.product_details}
               multiline={true}
             />
           </Grid>
@@ -110,8 +134,9 @@ const AddProduct = () => {
             <TextField
               required
               onChange={(e) => {
-                setData({ ...data, sku: e.target.value });
+                setData({ ...data, product_sku: e.target.value });
               }}
+              value={data.product_sku}
               label="SKU"
             ></TextField>
           </Grid>
@@ -119,9 +144,9 @@ const AddProduct = () => {
             <TextField
               required
               onChange={(e) => {
-                setData({ ...data, stock: e.target.value });
+                setData({ ...data, product_stock: e.target.value });
               }}
-              defaultValue={0}
+              value={data.product_stock}
               label="Stock"
             ></TextField>
           </Grid>
@@ -129,8 +154,9 @@ const AddProduct = () => {
             <TextField
               required
               onChange={(e) => {
-                setData({ ...data, price: e.target.value });
+                setData({ ...data, product_price: e.target.value });
               }}
+              value={data.product_price}
               label="Price"
             ></TextField>
           </Grid>
