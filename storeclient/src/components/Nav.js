@@ -153,7 +153,9 @@ const Nav = (props) => {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <Button>Checkout</Button>
+            <Button>
+              <Link to="/cart">Checkout</Link>
+            </Button>
           </ListItem>
         </List>
       </Drawer>
