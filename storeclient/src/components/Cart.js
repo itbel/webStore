@@ -10,8 +10,15 @@ import {
   TableHead,
   TableRow,
   Button,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Paper,
+  ListSubheader,
 } from "@material-ui/core";
-
+import IndeterminateCheckBoxOutlinedIcon from "@material-ui/icons/IndeterminateCheckBoxOutlined";
+import AddBoxOutlinedIcon from "@material-ui/icons/AddBoxOutlined";
 const Cart = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
@@ -36,31 +43,24 @@ const Cart = () => {
           alignItems="stretch"
         >
           <Grid lg={4} xs={12}>
-            <TableContainer>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Item Name</TableCell>
-                    <TableCell align="right">Price</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {shoppingCart.items.map((row, key) => (
-                    <TableRow key={key}>
-                      <TableCell component="th" scope="row">
-                        {row.name}
-                      </TableCell>
-                      <TableCell align="right">{row.price}</TableCell>
-                    </TableRow>
-                  ))}
-                  <TableRow>
-                    <TableCell>Total</TableCell>
-                    <TableCell align="right">$100</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </TableContainer>
-            <Button>Checkout</Button>
+            <Paper>
+              <List>
+                {shoppingCart.items.map((row, key) => (
+                  <ListItem button key={""}>
+                    <ListItemIcon>
+                      <AddBoxOutlinedIcon></AddBoxOutlinedIcon>
+                      <IndeterminateCheckBoxOutlinedIcon></IndeterminateCheckBoxOutlinedIcon>
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={row.name}
+                      secondary={`Qty:${1} $${row.price}`}
+                      style={{ width: "200px", textAlign: "left" }}
+                    ></ListItemText>
+                  </ListItem>
+                ))}
+              </List>
+              <Button>Checkout</Button>
+            </Paper>
           </Grid>
         </Grid>
       </Grid>
