@@ -9,6 +9,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Button,
 } from "@material-ui/core";
 
 const Cart = () => {
@@ -29,33 +30,38 @@ const Cart = () => {
     <>
       <Grid container>
         <Grid
-          style={{ paddingTop: "20px" }}
           container
           direction="row"
           justify={isMobile ? "space-evenly" : "center"}
           alignItems="stretch"
-          spacing={isMobile ? 0 : 4}
         >
-          <TableContainer>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Item Name</TableCell>
-                  <TableCell align="right">Price</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {shoppingCart.items.map((row, key) => (
-                  <TableRow key={key}>
-                    <TableCell component="th" scope="row">
-                      {row.name}
-                    </TableCell>
-                    <TableCell align="right">{row.price}</TableCell>
+          <Grid lg={4} xs={12}>
+            <TableContainer>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Item Name</TableCell>
+                    <TableCell align="right">Price</TableCell>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+                </TableHead>
+                <TableBody>
+                  {shoppingCart.items.map((row, key) => (
+                    <TableRow key={key}>
+                      <TableCell component="th" scope="row">
+                        {row.name}
+                      </TableCell>
+                      <TableCell align="right">{row.price}</TableCell>
+                    </TableRow>
+                  ))}
+                  <TableRow>
+                    <TableCell>Total</TableCell>
+                    <TableCell align="right">$100</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <Button>Checkout</Button>
+          </Grid>
         </Grid>
       </Grid>
     </>
