@@ -1,17 +1,10 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 // Components
-import Home from "./components/Home";
-import Contact from "./components/Contact";
-import Support from "./components/Support";
-import Nav from "./components/Nav";
-import Cart from "./components/Cart";
-import Footer from "./components/Footer";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import ItemInfo from "./components/ItemInfo";
+
+import Landing from "./components/Landing";
 
 export default function App() {
   const theme = useTheme();
@@ -25,32 +18,8 @@ export default function App() {
   }));
   const classes = useStyles();
   return (
-    <>
-      <div className={classes.root}>
-        <Nav />
-        <Switch>
-          <Route exact from="/" render={(props) => <Home {...props} />} />
-          <Route
-            exact
-            path="/contact"
-            render={(props) => <Contact {...props} />}
-          />
-          <Route
-            exact
-            path="/support"
-            render={(props) => <Support {...props} />}
-          />
-          <Route exact path="/login" render={(props) => <Login {...props} />} />
-          <Route
-            exact
-            path="/register"
-            render={(props) => <Register {...props} />}
-          />
-          <Route path="/cart" render={(props) => <Cart {...props} />} />
-          <Route path="/product" render={(props) => <ItemInfo {...props} />} />
-        </Switch>
-        <Footer></Footer>
-      </div>
-    </>
+    <div className={classes.root}>
+      <Landing></Landing>
+    </div>
   );
 }
